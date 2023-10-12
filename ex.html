@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+      body {
+        padding-top: 78px;
+      }
+      /* header */
+      .header {
+        width: 100%;
+        background: #d9eaf1 !important;
+        /* background: #fff !important; */
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 10;
+        /* height: 78px; */
+      }
+      .header .navbar-brand img {
+        width: 280px;
+      }
+      .header .nav-item .nav-link {
+        margin-left: 24px;
+        font-weight: 600;
+      }
+      .header .nav-item .nav-link:hover {
+        color: #0d6efd;
+      }
+      .header .nav-item .nav-link.btn:hover {
+        color: #fff;
+      }
+      /* end header */
+
+      @media (max-width: 768px) {
+        .header .navbar-collapse {
+          /* background: #fff; */
+        }
+        .header .nav-item .nav-link {
+          margin: 0 0 16px;
+        }
+        .header .nav-item .btn-success {
+          margin: 0 0 16px !important;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .header .navbar-brand img {
+          width: 240px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header -->
+    <nav class="header navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <img
+            src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1696955674/cleaner/logo2_3_wdlaua.png"
+            alt=""
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/services"
+                >Services</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/join-us">Join Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact-us">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-success mx-4" href="/booknow">Book Now</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-primary" href="/login">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- end header -->
+
+    <!-- content -->
+
+    <!-- end content -->
+
+    <!-- footer -->
+    <div class="footer">
+      <div class="areas">
+        <div class="areas-content">
+          <div class="contentLeft">
+            <h2>Areas We Serve</h2>
+
+            <div class="listTags">
+              <span>Toronto</span>
+              <span>Vaughan</span>
+              <span>Markham</span>
+              <span>Richmond Hill</span>
+              <span>Brampton</span>
+              <span>Mississauga</span>
+              <span>Halton Hills</span>
+              <span>Milton</span>
+              <span>Oakville</span>
+              <span>Burlington</span>
+            </div>
+          </div>
+          <div class="contentRight">
+            <h2>Contact Us</h2>
+            <p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
+                />
+              </svg>
+              123-456-7890
+            </p>
+            <p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+                />
+              </svg>
+
+              email@example.com
+            </p>
+
+            <button class="btn btn-primary btnBook" href="/book-now">Book Now</button>
+            <button class="btn btn-primary btnBook" href="/gift-cards">Gift Cards</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end footer -->
+  </body>
+</html>

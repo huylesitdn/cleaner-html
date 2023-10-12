@@ -1,0 +1,3526 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+      body {
+        padding-top: 78px;
+      }
+      /* header */
+      .header {
+        width: 100%;
+        background: #d9eaf1 !important;
+        /* background: #fff !important; */
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 10;
+        /* height: 78px; */
+      }
+      .header .navbar-brand img {
+        width: 280px;
+      }
+      .header .nav-item .nav-link {
+        margin-left: 24px;
+        font-weight: 600;
+      }
+      .header .nav-item .nav-link:hover {
+        color: #0d6efd;
+      }
+      .header .nav-item .nav-link.btn:hover {
+        color: #fff;
+      }
+      /* end header */
+
+      /* content */
+      .servicesPage {
+      }
+
+      .servicesPage .cleanServices {
+        padding: 20px 30px;
+        box-sizing: border-box;
+        height: 60vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .servicesPage .cleanServices h1 {
+        font-size: 48px;
+        font-weight: bold;
+        margin: 0 0 20px;
+      }
+
+      .servicesPage .cleanServices h3 {
+        font-size: 36px;
+        color: #176f9d;
+        font-weight: bold;
+      }
+
+      .servicesPage .cleanServices h3 span {
+        color: #06ff10;
+      }
+
+      .servicesPage .cleanServices p {
+        font-size: 20px;
+        color: #000;
+        margin: 0 0 24px;
+      }
+
+      .servicesPage .listButtons {
+        background: url("https://res.cloudinary.com/daqg0u9gs/image/upload/v1696735119/cleaner/AdobeStock_353890760_1_2_ysiexm.png")
+          no-repeat center center;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 60vh;
+      }
+
+      .contact .phone {
+        font-size: 18px;
+        font-weight: 500;
+        border-radius: 30px;
+        padding: 0 0 0 20px;
+        overflow: hidden;
+        min-width: 240px;
+        display: flex;
+        align-items: center;
+        background: rgb(169, 250, 247);
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(227, 223, 227, 1);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(227, 223, 227, 1);
+        box-shadow: 0px 0px 5px 0px rgba(227, 223, 227, 1);
+        height: 46px;
+      }
+
+      .contact .phone svg {
+        width: 20px;
+        height: 20px;
+        color: #fff;
+      }
+
+      .contact .phone button {
+        background: rgb(240, 97, 45);
+        border: none;
+        width: 50px;
+        border-radius: 0 30px 30px 0;
+        margin-left: auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 46px;
+      }
+      .contact .btnBook {
+        width: 100%;
+        border-radius: 30px;
+        -webkit-box-shadow: 0px 0px 5px 0px rgba(227, 223, 227, 1);
+        -moz-box-shadow: 0px 0px 5px 0px rgba(227, 223, 227, 1);
+        box-shadow: 0px 0px 5px 0px rgba(227, 223, 227, 1);
+        height: 46px;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .listButtons .viewButtons .btn {
+        height: 56px;
+        border-radius: 30px;
+        padding: 10px 30px;
+        width: 350px;
+        background: #ffffffb2;
+        border: none;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .cleaningChecklist {
+        padding: 80px 0;
+        box-sizing: border-box;
+      }
+
+      .cleaningChecklist h1 {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .customTabs {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .customTabs li {
+        width: calc(100% / 3);
+      }
+
+      .customTabs li button {
+        width: 100%;
+        font-weight: 600;
+        font-size: 24px;
+        color: #000;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        border: 1px solid #ddd !important;
+        border-right: 0 !important;
+        border-radius: 0 !important;
+      }
+
+      .customTabs li button:last-child {
+        border-right: 1px solid #ddd !important;
+      }
+
+      .customTabs li button:hover {
+        color: rgb(223, 151, 16) !important;
+      }
+
+      .customTabs li button.active {
+        background: rgb(223, 151, 16) !important;
+        color: #fff !important;
+        border-color: rgb(223, 151, 16) !important;
+      }
+
+      .tab-content {
+        /* padding: 20px; */
+        /* border: 1px solid #ddd; */
+        /* border-bottom: 0; */
+        /* border-top: 0; */
+      }
+
+      .viewTab {
+        border: 1px solid #ddd;
+        border-top: 0;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .tab-content h6 {
+        text-align: center;
+        margin-bottom: 24px;
+      }
+
+      .packageOptions {
+        width: 100%;
+      }
+
+      .packageOptions .listOptions {
+        height: 100%;
+      }
+
+      .packageOptions .listOptions .viewImg {
+        overflow: hidden;
+      }
+
+      .packageOptions .listOptions .viewImg img {
+        /* height: 100%; */
+        height: 200px;
+        width: 100%;
+        object-fit: fill;
+      }
+
+      .packageOptions .listOptions:hover {
+        background: rgba(255, 229, 178, 0.894);
+      }
+
+      .packageOptions .listOptions {
+        -webkit-box-shadow: inset 0px 0px 6px 2px rgba(250, 191, 73, 0.67);
+        -moz-box-shadow: inset 0px 0px 6px 2px rgba(250, 191, 73, 0.67);
+        box-shadow: inset 0px 0px 6px 2px rgba(250, 191, 73, 0.67);
+        /* border: 1px solid rgba(230, 165, 34, 1); */
+        /* border-top: 0; */
+        padding: 0px;
+        box-sizing: border-box;
+        border-radius: 15px 15px;
+        overflow: hidden;
+        /* cursor: pointer; */
+      }
+
+      .packageOptions .listOptions .optionDetail {
+        padding: 16px;
+      }
+
+      .packageOptions .viewImg {
+        width: 100%;
+      }
+
+      .packageOptions h4 {
+        font-size: 20px;
+        font-weight: bold;
+        margin: 0 0 16px;
+      }
+
+      .packageOptions .optionItem {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+
+      .packageOptions .optionItem svg {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+      }
+
+      .packageOptions .optionItem p {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 500;
+        width: calc(100% - 30px);
+      }
+
+      .packageOptions h5 {
+        font-size: 20px;
+        margin-top: 40px;
+        font-weight: 300;
+        color: #949494;
+      }
+
+      /* service list */
+      .serviceList {
+        width: 100%;
+        padding: 40px 0 30px;
+        background: #f4f4f4;
+      }
+
+      .serviceList h1 {
+        font-size: 42px;
+        font-weight: bold;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+      .serviceList p {
+        font-size: 18px;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .allServices {
+        width: 100%;
+        text-align: center;
+        gap: 16px;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+      }
+
+      .allServices .serviceItem {
+        text-align: center;
+        width: calc(100% / 8);
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .allServices .serviceItem h5 {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .allServices .serviceItem img {
+        width: auto;
+        max-width: 100%;
+        height: 100px;
+        margin-bottom: 10px;
+      }
+
+      .allServices .serviceItem p {
+        font-size: 12px;
+        color: #777;
+        margin-top: 5px;
+        margin-bottom: 0;
+      }
+
+      /* office */
+      .office {
+        width: 100%;
+        padding: 20px 0;
+        box-sizing: border-box;
+      }
+
+      .officeItem {
+        display: flex;
+        align-items: center;
+        background-color: #eff9fe;
+        margin-bottom: 20px;
+      }
+
+      .officeItem p {
+        font-weight: 500;
+        font-size: 18px;
+      }
+
+      .officeItem .viewImg {
+        width: 40%;
+      }
+
+      .officeItem .viewImg img {
+        width: 100%;
+      }
+
+      .officeItem .officeItemContent {
+        width: 60%;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .officeItem .officeItemContent h2 {
+        font-size: 36px;
+        color: #096226;
+        font-weight: bold;
+      }
+      .officeItem .officeItemContent h6 {
+        font-size: 18px;
+        font-style: italic;
+        color: #3bbc66;
+      }
+
+      /* footer */
+      .footer {
+        width: 100%;
+        background: url("https://res.cloudinary.com/daqg0u9gs/image/upload/v1696694614/cleaner/bg_x1nfyi.png")
+          repeat top center;
+        background-size: contain;
+      }
+      .areas {
+        /* background: #d2d2d2c4; */
+        background: #767676c4;
+        padding: 40px 60px;
+        box-sizing: border-box;
+      }
+      .areas-content {
+        display: flex;
+      }
+
+      .contentLeft {
+        width: 100%;
+        max-width: 400px;
+      }
+      .contentRight {
+        width: 100%;
+        max-width: 400px;
+        margin-left: auto;
+        box-sizing: border-box;
+      }
+
+      .areas-content h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        margin-top: 0;
+        color: #fff;
+      }
+
+      .contentRight h2 {
+        color: #000;
+      }
+
+      .listTags span {
+        font-size: 14px;
+        padding: 5px 15px;
+        background: rgb(50, 184, 170);
+        color: #fff;
+        border-radius: 30px;
+        margin-right: 6px;
+        margin-bottom: 6px;
+        display: inline-block;
+      }
+
+      .contentRight {
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        -webkit-box-shadow: 0px 4px 6px 0px rgba(224, 220, 224, 1);
+        -moz-box-shadow: 0px 4px 6px 0px rgba(224, 220, 224, 1);
+        box-shadow: 0px 4px 6px 0px rgba(224, 220, 224, 1);
+        box-sizing: border-box;
+      }
+
+      .contentRight p {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .contentRight p svg {
+        margin-right: 10px;
+        width: 20px;
+        height: 20px;
+      }
+
+      .btnBook {
+        /* background: rgb(36, 129, 236); */
+        padding: 8px 20px;
+        border-radius: 36px;
+        /* color: #fff; */
+        font-weight: 500;
+        /* margin: 20px 20px 20px 0; */
+        /* border: none; */
+        font-size: 14px;
+        margin-right: 20px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media (max-width: 600px) {
+        .areas {
+          padding: 30px 20px;
+        }
+        .areas-content {
+          display: inline-block;
+        }
+        .contentRight {
+          padding: 20px;
+          margin-top: 20px;
+        }
+
+        .btnBook {
+          width: 100%;
+          margin: 16px 0 0;
+        }
+      }
+      /* end footer */
+
+      /* max width 1024px */
+      @media (max-width: 1025px) {
+        .packageOptions .listOptions .viewImg img {
+          height: 150px;
+        }
+      }
+
+      /* max width 991px */
+      @media (max-width: 992px) {
+        .servicesPage .cleanServices {
+          height: auto;
+          text-align: center;
+        }
+
+        .servicesPage .listButtons {
+          height: auto;
+          min-height: 500px;
+          background-size: cover;
+        }
+        .servicesPage .cleanServices .contact {
+          max-width: 400px;
+          margin: 0 auto;
+        }
+
+        .customTabs li button {
+          font-size: 16px;
+        }
+
+        .allServices {
+          display: block;
+          overflow: hidden;
+        }
+
+        .allServices .serviceItem {
+          width: calc(100% / 4);
+          float: left;
+        }
+
+        .allServices .serviceItem img {
+          height: 65px;
+        }
+
+        .officeItem p {
+          margin: 0;
+          font-size: 16px;
+        }
+      }
+
+      /* max 768px */
+      @media (max-width: 768px) {
+        .header .navbar-collapse {
+          /* background: #fff; */
+        }
+        .header .nav-item .nav-link {
+          margin: 0 0 16px;
+        }
+        .header .nav-item .btn-success {
+          margin: 0 0 16px !important;
+        }
+        .servicesPage .cleanServices h1 {
+          font-size: 36px;
+        }
+        .servicesPage .cleanServices h3 {
+          font-size: 28px;
+        }
+        .servicesPage .cleanServices p {
+          font-size: 18px;
+        }
+        .servicesPage .listButtons {
+          min-height: 360px;
+        }
+        .cleaningChecklist h1 {
+          font-size: 36px;
+        }
+        .customTabs li button {
+          font-size: 13px;
+          padding: 8px;
+        }
+        .serviceList h1 {
+          font-size: 36px;
+          margin-bottom: 24px;
+        }
+        .serviceList p {
+          font-size: 16px;
+        }
+        .allServices .serviceItem {
+          padding: 16px;
+        }
+        .allServices .serviceItem img {
+          height: 50px;
+        }
+        .allServices .serviceItem h5 {
+          font-size: 14px;
+        }
+
+        .officeItem .officeItemContent h2 {
+          font-size: 28px;
+        }
+
+        .officeItem .officeItemContent h6 {
+          font-size: 14px;
+        }
+      }
+
+      /* max 500px */
+      @media (max-width: 500px) {
+        .header .navbar-brand img {
+          width: 240px;
+        }
+
+        .cleaningChecklist h1 {
+          font-size: 30px;
+        }
+        .customTabs li {
+          width: 30%;
+        }
+        .customTabs li:last-child {
+          width: 40%;
+        }
+        .customTabs li button {
+          font-size: 13px;
+        }
+
+        .serviceList h1 {
+          font-size: 30px;
+        }
+        .allServices .serviceItem {
+          width: 50%;
+        }
+        .servicesPage .cleanServices {
+          padding: 40px 0;
+        }
+        .contact .phone {
+          font-size: 14px;
+        }
+        .servicesPage .listButtons {
+          padding: 20px;
+          background-size: cover;
+        }
+
+        .servicesPage .listButtons .btn {
+          width: 100%;
+        }
+        .officeItem .officeItemContent h2 {
+          font-size: 20px;
+        }
+
+        .officeItem {
+          display: inline-block;
+        }
+        .officeItem .officeItemContent {
+          width: 100%;
+        }
+        .officeItem .viewImg {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 376px) {
+        .allServices .serviceItem {
+          width: 100%;
+        }
+        .allServices .serviceItem img {
+          height: 80px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- header -->
+    <nav class="header navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <img
+            src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1696955674/cleaner/logo2_3_wdlaua.png"
+            alt=""
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/services"
+                >Services</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/join-us">Join Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact-us">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-success mx-4" href="/booknow">Book Now</a>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-primary" href="/login">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- end header -->
+
+    <!-- content -->
+    <div class="servicesPage">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 col-lg-5 col-xl-4">
+            <div class="cleanServices">
+              <div>
+                <h1>Cleaning Services</h1>
+                <h3>Quality, Flexibility, and <span>Eco-Friendly</span></h3>
+                <p>
+                  Book a quality cleaning service that values customer happiness
+                  more than anything. With CommittedCleaner, you and your
+                  property are in good hands!
+                </p>
+
+                <div class="contact">
+                  <a
+                    class="btn btn-primary btn-block mb-3 w-full btnBook"
+                    href="/booknow"
+                  >
+                    Book Now
+                  </a>
+
+                  <div class="ms-auto phone">
+                    +34-123-456-789
+                    <button class="btn btnPhone btn-light">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-lg-7 col-xl-8">
+            <div class="listButtons text-center flex item-center">
+              <div class="viewButtons">
+                <div class="mb-3">
+                  <a class="btn btn-light btnPackage" onclick="viewPackage()"
+                    >House Cleaning Package</a
+                  >
+                </div>
+                <div class="mb-3">
+                  <a class="btn btn-light btnHouse" onclick="viewHouse()"
+                    >House Cleaning By Hour</a
+                  >
+                </div>
+                <div>
+                  <a class="btn btn-light btnOffice" onclick="viewOffice()"
+                    >Office Cleaning</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cleaningChecklist" id="package">
+      <div class="container-fluid">
+        <h1>Our House Cleaning Checklist</h1>
+
+        <ul class="nav nav-tabs customTabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="home-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#home-tab-pane"
+              type="button"
+              role="tab"
+              aria-controls="home-tab-pane"
+              aria-selected="true"
+            >
+              Standard Cleaning
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="profile-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#profile-tab-pane"
+              type="button"
+              role="tab"
+              aria-controls="profile-tab-pane"
+              aria-selected="false"
+            >
+              Deep Cleaning
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="contact-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#contact-tab-pane"
+              type="button"
+              role="tab"
+              aria-controls="contact-tab-pane"
+              aria-selected="false"
+            >
+              Move In/Out Cleaning
+            </button>
+          </li>
+        </ul>
+        <div class="viewTab">
+          <div class="tab-content" id="myTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="home-tab-pane"
+              role="tabpanel"
+              aria-labelledby="home-tab"
+              tabindex="0"
+            >
+              <h6>
+                Our standard cleaning service is a more frequent cleaning option
+                for homes that are well maintained
+              </h6>
+
+              <div class="packageOptions">
+                <div class="row g-4">
+                  <!-- bedrooms -->
+                  <div class="col-lg-3 col-md-6 col-xs-12">
+                    <div class="listOptions">
+                      <div class="viewImg">
+                        <img
+                          src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697031961/AdobeStock_327397061_1_trvf5f.png"
+                          alt=""
+                          style="width: 100%"
+                        />
+                      </div>
+
+                      <div class="optionDetail">
+                        <h4>Bedrooms & Living Areas</h4>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Dust and wipe table-top surfaces</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Sweep and mop floors</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Vacuum carpets</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean mirrors</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Dust furniture</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean hallways and staircases</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Empty bins</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Clean baseboards</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Clean under furniture</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Wipe window sills</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Clean window frames</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Wipe door frames</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Spot clean walls</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Clean and wipe vents</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Dusting ceiling</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Wiping fans</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- kitchen area -->
+                  <div class="col-lg-3 col-md-6 col-xs-12">
+                    <div class="listOptions">
+                      <div class="viewImg">
+                        <img
+                          src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697031949/AdobeStock_125350166_1_1_fsc7xk.png"
+                          alt=""
+                          style="width: 100%"
+                        />
+                      </div>
+
+                      <div class="optionDetail">
+                        <h4>Kitchen Area</h4>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Dust and wipe table-top surfaces</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean and shine sink</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Sweep and mop floors</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean and wipe appliances (exterior)</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean stovetop</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Empty bins</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Clean microwave interior</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Clean kitchen baseboards</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Wipe and clean backsplash</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Spot clean walls</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Clean behind appliances</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Clean range hood</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Clean and wipe vents</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Dusting ceiling</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- bathroom -->
+                  <div class="col-lg-3 col-md-6 col-xs-12">
+                    <div class="listOptions">
+                      <div class="viewImg">
+                        <img
+                          src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697031938/image_56_lv5kon.png"
+                          alt=""
+                          style="width: 100%"
+                        />
+                      </div>
+
+                      <div class="optionDetail">
+                        <h4>Bathroom</h4>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Wipe and sanitize all surfaces</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean and shine sink</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean mirrors</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean and sanitize toilets</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Sweep and mop floors</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean shower faucets</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean and scrub tub</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Empty bins</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Clean bathroom baseboards</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Clean doors and cabinet exteriors</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Additional -->
+                  <div class="col-lg-3 col-md-6 col-xs-12">
+                    <div class="listOptions">
+                      <div class="viewImg">
+                        <img
+                          src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697031990/cleaner/image_57_gm2tvm.png"
+                          alt=""
+                          style="width: 100%"
+                        />
+                      </div>
+
+                      <div class="optionDetail">
+                        <h4>Additional Areas & Extras</h4>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Basement Area</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Extra Kitchen</p>
+                        </div>
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Inside cabinets</p>
+                        </div>
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Inside fridge</p>
+                        </div>
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Inside oven</p>
+                        </div>
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Windows and tracks</p>
+                        </div>
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Load Dishwasher</p>
+                        </div>
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Change Bed Sheets</p>
+                        </div>
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Fold Laundry</p>
+                        </div>
+
+                        <h5>
+                          Additional areas and extras can be selected on our
+                          <a href="/booknow">booking page</a>
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="profile-tab-pane"
+              role="tabpanel"
+              aria-labelledby="profile-tab"
+              tabindex="0"
+            >
+              <h6>
+                Our deep cleaning service is a less frequent cleaning option for
+                those who typically clean about once a month.
+              </h6>
+
+              <div class="packageOptions">
+                <div class="row g-4">
+                  <!-- bedrooms -->
+                  <div class="col-lg-3 col-md-6 col-xs-12">
+                    <div class="listOptions">
+                      <div class="viewImg">
+                        <img
+                          src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697032410/cleaner/image_58_n7uj4u.png"
+                          alt=""
+                          style="width: 100%"
+                        />
+                      </div>
+
+                      <div class="optionDetail">
+                        <h4>Bedrooms & Living Areas</h4>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Dust and wipe table-top surfaces</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Sweep and mop floors</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Vacuum carpets</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean mirrors</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Dust furniture</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean hallways and staircases</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Empty bins</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean baseboards</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean under furniture</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Wipe window sills</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean window frames</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Wipe door frames</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Spot clean walls</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Clean and wipe vents</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Dusting ceiling</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Wiping fans</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- kitchen area -->
+                  <div class="col-lg-3 col-md-6 col-xs-12">
+                    <div class="listOptions">
+                      <div class="viewImg">
+                        <img
+                          src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697032416/cleaner/image_59_o9sjjh.png"
+                          alt=""
+                          style="width: 100%"
+                        />
+                      </div>
+
+                      <div class="optionDetail">
+                        <h4>Kitchen Area</h4>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Dust and wipe table-top surfaces</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean and shine sink</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Sweep and mop floors</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean and wipe appliances (exterior)</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean stovetop</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Empty bins</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean microwave interior</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean kitchen baseboards</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Wipe and clean backsplash</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Spot clean walls</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Clean behind appliances</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Clean range hood</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Clean and wipe vents</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Dusting ceiling</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- bathroom -->
+                  <div class="col-lg-3 col-md-6 col-xs-12">
+                    <div class="listOptions">
+                      <div class="viewImg">
+                        <img
+                          src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697032413/cleaner/image_53_fg8cup.png"
+                          alt=""
+                          style="width: 100%"
+                        />
+                      </div>
+
+                      <div class="optionDetail">
+                        <h4>Bathroom</h4>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Wipe and sanitize all surfaces</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean and shine sink</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean mirrors</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean and sanitize toilets</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Sweep and mop floors</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean shower faucets</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean and scrub tub</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Empty bins</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean bathroom baseboards</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                            class="w-6 h-6"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm-1.72 6.97a.75.75 0 10-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 101.06 1.06L12 13.06l1.72 1.72a.75.75 0 101.06-1.06L13.06 12l1.72-1.72a.75.75 0 10-1.06-1.06L12 10.94l-1.72-1.72z"
+                              clip-rule="evenodd"
+                            />
+                          </svg>
+                          <p>Clean doors and cabinet exteriors</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Additional -->
+                  <div class="col-lg-3 col-md-6 col-xs-12">
+                    <div class="listOptions">
+                      <div class="viewImg">
+                        <img
+                          src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697032414/cleaner/image_60_wef21o.png"
+                          alt=""
+                          style="width: 100%"
+                        />
+                      </div>
+
+                      <div class="optionDetail">
+                        <h4>Additional Areas & Extras</h4>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Basement Area</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Extra Kitchen</p>
+                        </div>
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Inside cabinets</p>
+                        </div>
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Inside fridge</p>
+                        </div>
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Inside oven</p>
+                        </div>
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Windows and tracks</p>
+                        </div>
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Load Dishwasher</p>
+                        </div>
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Change Bed Sheets</p>
+                        </div>
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Fold Laundry</p>
+                        </div>
+
+                        <h5>
+                          Additional areas and extras can be selected on our
+                          <a href="/booknow">booking page</a>
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="contact-tab-pane"
+              role="tabpanel"
+              aria-labelledby="contact-tab"
+              tabindex="0"
+            >
+              <h6>
+                Our move in/out cleaning service is ideal for preparing homes
+                for new tenants/owners (or giving your landlord a nice farewell)
+              </h6>
+
+              <div class="packageOptions">
+                <div class="row g-4">
+                  <!-- bedrooms -->
+                  <div class="col-lg-3 col-md-6 col-xs-12">
+                    <div class="listOptions">
+                      <div class="viewImg">
+                        <img
+                          src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697034514/cleaner/AdobeStock_196997285_1_u7q4l3.png"
+                          alt=""
+                          style="width: 100%"
+                        />
+                      </div>
+
+                      <div class="optionDetail">
+                        <h4>Bedrooms & Living Areas</h4>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Dust and wipe table-top surfaces</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Sweep and mop floors</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Vacuum carpets</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean mirrors</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Dust furniture</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean hallways and staircases</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Empty bins</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean baseboards</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean under furniture</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Wipe window sills</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean window frames</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Wipe door frames</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Spot clean walls</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean and wipe vents</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Dusting ceiling</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Wiping fans</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- kitchen area -->
+                  <div class="col-lg-3 col-md-6 col-xs-12">
+                    <div class="listOptions">
+                      <div class="viewImg">
+                        <img
+                          src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697034512/cleaner/image_52_ogvtus.png"
+                          alt=""
+                          style="width: 100%"
+                        />
+                      </div>
+
+                      <div class="optionDetail">
+                        <h4>Kitchen Area</h4>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Dust and wipe table-top surfaces</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean and shine sink</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Sweep and mop floors</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean and wipe appliances (exterior)</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean stovetop</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Empty bins</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean microwave interior</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean kitchen baseboards</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Wipe and clean backsplash</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Spot clean walls</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean behind appliances</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean range hood</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean and wipe vents</p>
+                        </div>
+
+                        <div class="optionItem uncheck">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Dusting ceiling</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- bathroom -->
+                  <div class="col-lg-3 col-md-6 col-xs-12">
+                    <div class="listOptions">
+                      <div class="viewImg">
+                        <img
+                          src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697034513/cleaner/AdobeStock_619580572_1_acuktl.png"
+                          alt=""
+                          style="width: 100%"
+                        />
+                      </div>
+
+                      <div class="optionDetail">
+                        <h4>Bathroom</h4>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Wipe and sanitize all surfaces</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean and shine sink</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean mirrors</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean and sanitize toilets</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Sweep and mop floors</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean shower faucets</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean and scrub tub</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Empty bins</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean bathroom baseboards</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M243.28,68.24l-24-23.56a16,16,0,0,0-22.58,0L104,136h0l-.11-.11L67.25,100.62a16,16,0,0,0-22.57.06l-24,24a16,16,0,0,0,0,22.61l71.62,72a16,16,0,0,0,22.63,0L243.33,90.91A16,16,0,0,0,243.28,68.24ZM103.62,208,32,136l24-24,.11.11,36.64,35.27a16,16,0,0,0,22.52,0L208.06,56,232,79.6Z"
+                            ></path>
+                          </svg>
+                          <p>Clean doors and cabinet exteriors</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Additional -->
+                  <div class="col-lg-3 col-md-6 col-xs-12">
+                    <div class="listOptions">
+                      <div class="viewImg">
+                        <img
+                          src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697034512/cleaner/AdobeStock_362977124_1_ss7kaj.png"
+                          alt=""
+                          style="width: 100%"
+                        />
+                      </div>
+
+                      <div class="optionDetail">
+                        <h4>Additional Areas & Extras</h4>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Basement Area</p>
+                        </div>
+
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Extra Kitchen</p>
+                        </div>
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Inside cabinets</p>
+                        </div>
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Inside fridge</p>
+                        </div>
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Inside oven</p>
+                        </div>
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Windows and tracks</p>
+                        </div>
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Load Dishwasher</p>
+                        </div>
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Change Bed Sheets</p>
+                        </div>
+                        <div class="optionItem">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="32"
+                            height="32"
+                            fill="#000000"
+                            viewBox="0 0 256 256"
+                          >
+                            <path
+                              d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"
+                            ></path>
+                          </svg>
+                          <p>Fold Laundry</p>
+                        </div>
+
+                        <h5>
+                          Additional areas and extras can be selected on our
+                          <a href="/booknow">booking page</a>
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="serviceList" id="house">
+      <div class="container-fluid">
+        <h1>Service Exclusions</h1>
+        <p>
+          The following services are <strong>not provided</strong> by Hellamaid
+        </p>
+
+        <div class="allServices">
+          <div class="serviceItem">
+            <img
+              src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1696828625/cleaner/image_74_1_lx0d7l.png"
+              alt=""
+            />
+            <h5>Chandeliers</h5>
+          </div>
+          <div class="serviceItem">
+            <img
+              src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1696828625/cleaner/image_75_awmo0p.png"
+              alt=""
+            />
+            <h5>Biohazards</h5>
+            <p>(mold, bodily fluids)</p>
+          </div>
+          <div class="serviceItem">
+            <img
+              src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1696828625/cleaner/image_76_y4y2jm.png"
+              alt=""
+            />
+            <h5>Feces</h5>
+          </div>
+          <div class="serviceItem">
+            <img
+              src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1696828625/cleaner/image_77_x7u4fd.png"
+              alt=""
+            />
+            <h5>Exterior areas</h5>
+            <p>(outside windows, patios)</p>
+          </div>
+          <div class="serviceItem">
+            <img
+              src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1696828625/cleaner/image_78_llygc9.png"
+              alt=""
+            />
+            <h5>Pest removal</h5>
+          </div>
+          <div class="serviceItem">
+            <img
+              src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1696828625/cleaner/image_79_qjmrhr.png"
+              alt=""
+            />
+            <h5>Hard to reach areas</h5>
+          </div>
+          <div class="serviceItem">
+            <img
+              src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1696828625/cleaner/image_81_lof1gn.png"
+              alt=""
+            />
+            <h5>Under heavy furniture</h5>
+          </div>
+          <div class="serviceItem">
+            <img
+              src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1696828624/cleaner/image_80_xftsr0.png"
+              alt=""
+            />
+            <h5>Full wash of walls</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="office" id="office">
+      <div class="container-fluid">
+        <div class="officeItem">
+          <div class="officeItemContent">
+            <h2>Hourly Cleaning</h2>
+            <h6>Perfection, One Hour at a Time</h6>
+            <p>
+              Sometimes, we just need a little assistance to achieve perfection.
+              With our Hourly Cleaning service, you get scalability,
+              affordability, and flexibility all in one. Our dedicated cleaners
+              will personalize the cleaning experience to match your exact
+              needs, making sure even the tiniest details are taken care of.
+            </p>
+          </div>
+
+          <div class="viewImg">
+            <img
+              src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1696829509/cleaner/iStock-1417833124_1_npb3cx.png"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="officeItem">
+          <div class="officeItemContent">
+            <h2>Office Cleaning</h2>
+            <h6>Let us deal with the Mess, so you can focus on SUCCESS</h6>
+            <p>
+              We provide commercial cleaning services for offices, stores,
+              clinics, and other types of commercial properties in GTA area. We
+              value your businesses’ success and workers’ happiness more than
+              anything. Book a cleaning service that focuses on quality service,
+              seamless communication, and most important, fresh and excellent
+              results every time!
+            </p>
+          </div>
+
+          <div class="viewImg">
+            <img
+              src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1696829508/cleaner/AdobeStock_392944931_1_zh41ne.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+      <div class="areas">
+        <div class="areas-content">
+          <div class="contentLeft">
+            <h2>Areas We Serve</h2>
+
+            <div class="listTags">
+              <span>Toronto</span>
+              <span>Vaughan</span>
+              <span>Markham</span>
+              <span>Richmond Hill</span>
+              <span>Brampton</span>
+              <span>Mississauga</span>
+              <span>Halton Hills</span>
+              <span>Milton</span>
+              <span>Oakville</span>
+              <span>Burlington</span>
+            </div>
+          </div>
+          <div class="contentRight">
+            <h2>Contact Us</h2>
+            <p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
+                />
+              </svg>
+              123-456-7890
+            </p>
+            <p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+                />
+              </svg>
+
+              email@example.com
+            </p>
+
+            <button class="btn btn-primary btnBook" href="/book-now">
+              Book Now
+            </button>
+            <button class="btn btn-primary btnBook" href="/gift-cards">
+              Gift Cards
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    function viewPackage() {
+      const el = document.getElementById("package");
+      el.scrollIntoView();
+    }
+
+    function viewHouse() {
+      const el = document.getElementById("house");
+      el.scrollIntoView();
+    }
+
+    function viewOffice() {
+      const el = document.getElementById("office");
+      el.scrollIntoView();
+    }
+  </script>
+</html>
