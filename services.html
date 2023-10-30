@@ -18,34 +18,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <style>
-      body {
-        padding-top: 78px;
-      }
+      /* body {
+        padding-top: 78px !important;
+      } */
       /* header */
-      .header {
-        width: 100%;
-        background: #d9eaf1 !important;
-        /* background: #fff !important; */
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 0;
-        z-index: 10;
-        /* height: 78px; */
-      }
-      .header .navbar-brand img {
-        width: 280px;
-      }
-      .header .nav-item .nav-link {
-        margin-left: 24px;
-        font-weight: 600;
-      }
-      .header .nav-item .nav-link:hover {
-        color: #0d6efd;
-      }
-      .header .nav-item .nav-link.btn:hover {
-        color: #fff;
-      }
+     
       /* end header */
 
       /* content */
@@ -55,7 +32,7 @@
       .servicesPage .cleanServices {
         padding: 20px 30px;
         box-sizing: border-box;
-        height: 60vh;
+        height: 70vh;
         display: flex;
         align-items: center;
       }
@@ -89,7 +66,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 60vh;
+        height: 70vh;
+      }
+
+      .contact {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
       }
 
       .contact .phone {
@@ -99,6 +83,7 @@
         padding: 0 0 0 20px;
         overflow: hidden;
         min-width: 240px;
+        width: 50%;
         display: flex;
         align-items: center;
         background: rgb(169, 250, 247);
@@ -106,6 +91,7 @@
         -moz-box-shadow: 0px 0px 5px 0px rgba(227, 223, 227, 1);
         box-shadow: 0px 0px 5px 0px rgba(227, 223, 227, 1);
         height: 46px;
+        margin: 0;
       }
 
       .contact .phone svg {
@@ -114,7 +100,7 @@
         color: #fff;
       }
 
-      .contact .phone button {
+      .contact .phone .btnPhone {
         background: rgb(240, 97, 45);
         border: none;
         width: 50px;
@@ -126,7 +112,7 @@
         height: 46px;
       }
       .contact .btnBook {
-        width: 100%;
+        width: 50%;
         border-radius: 30px;
         -webkit-box-shadow: 0px 0px 5px 0px rgba(227, 223, 227, 1);
         -moz-box-shadow: 0px 0px 5px 0px rgba(227, 223, 227, 1);
@@ -136,6 +122,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        margin: 0 !important;
       }
 
       .listButtons .viewButtons .btn {
@@ -500,6 +487,22 @@
       }
       /* end footer */
 
+      @media (max-width: 1440px) {
+        .contact {
+          display: inline-block;
+          width: 100%;
+        }
+        .contact .phone {
+          min-width: 200px;
+          width: 100%;
+          font-size: 14px;
+        }
+        .contact .btnBook {
+          width: 100%;
+          margin-bottom: 20px !important;
+        }
+      }
+
       /* max width 1024px */
       @media (max-width: 1025px) {
         .packageOptions .listOptions .viewImg img {
@@ -658,6 +661,12 @@
         }
       }
 
+      @media (max-width: 480px) {
+        .customTabs li button {
+          height: 57px;
+        }
+      }
+
       @media (max-width: 376px) {
         .allServices .serviceItem {
           width: 100%;
@@ -666,18 +675,229 @@
           height: 80px;
         }
       }
+
+      /* new header */
+      /* header */
+      .header {
+        width: 100%;
+        background: #d9eaf1 !important;
+        /* background: #fff !important; */
+        /* position: fixed; */
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 10;
+        /* height: 78px; */
+      }
+      .header .subMenuMobile {
+        display: none;
+      }
+      .header .navbar-brand img {
+        width: 280px;
+      }
+      .header .nav-item .nav-link {
+        margin-left: 24px;
+        font-weight: 600;
+      }
+      .header .nav-item .nav-link:hover {
+        color: #0d6efd;
+      }
+      .header .nav-item .nav-link.btn:hover {
+        color: #fff;
+      }
+      /* end header */
+
+      @media (max-width: 991px) {
+        .header .subMenuMobile {
+          display: inline-flex;
+          align-items: center;
+          margin-left: auto;
+        }
+        .header .subMenuMobile a {
+          margin: 0 16px 0 0;
+        }
+        .header .navbar-collapse .nav-item .btn {
+          display: none;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header .navbar-collapse {
+          /* background: #fff; */
+        }
+        .header .nav-item .nav-link {
+          margin: 0 0 16px;
+        }
+        .header .nav-item .btn-success {
+          margin: 0 0 16px !important;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .header .navMobile {
+          width: 100%;
+          text-align: right;
+        }
+
+        .header .subMenuMobile a {
+          margin-right: 10px !important;
+          margin-left: 0 !important;
+        }
+        .header .navbar-brand {
+          width: 100%;
+          text-align: center;
+          margin: 0 0 10px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .header .navbar-brand img {
+          width: 240px;
+        }
+      }
+      /* end header */
+
+      /* banner */
+      .banner {
+        width: 100%;
+        background: url("https://res.cloudinary.com/daqg0u9gs/image/upload/v1697078302/cleaner/AdobeStock_222623099_1_1_syjvaw.png")
+          no-repeat bottom center;
+        background-size: cover;
+        padding: 160px 0;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+      .bannerContent {
+        max-width: 500px;
+        margin-left: 30px;
+      }
+      .bannerContent h1 {
+        font-size: 40px;
+        margin-bottom: 30px;
+      }
+
+      .bannerContent .quoteForm .btn {
+        width: 100%;
+        padding: 10px;
+        border-radius: 30px;
+        font-weight: 500;
+      }
+      @media (max-width: 1024px) {
+        .banner {
+          padding: 100px 0;
+        }
+      }
+      @media (max-width: 768px) {
+        /* content */
+        .banner .bannerContent {
+          margin: 0 auto;
+        }
+        .bannerContent h1 {
+          text-align: center;
+          font-size: 32px;
+        }
+      }
+      @media (max-width: 480px) {
+        .bannerContent h1 {
+          font-size: 24px;
+        }
+      }
+
+      .header {
+        width: 100%;
+        background: #09549c !important;
+        /* background: #fff !important; */
+        /* position: fixed; */
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 10;
+        /* height: 78px; */
+      }
+      .header .subMenuMobile {
+        display: none;
+      }
+      .header .navbar-brand img {
+        width: 280px;
+      }
+      .header .nav-item .nav-link {
+        margin-left: 24px;
+        font-weight: 600;
+        color: #fff;
+      }
+      .header .nav-item .nav-link:hover {
+        color: #0d6efd;
+      }
+      .header .nav-item .nav-link.btn:hover {
+        color: #fff;
+      }
+      .header .nav-item .btn {
+        border-radius: 26px;
+      }
+      /* end header */
+
+      @media (max-width: 991px) {
+        .header .subMenuMobile {
+          display: inline-flex;
+          align-items: center;
+          margin-left: auto;
+        }
+        .header .subMenuMobile a {
+          margin: 0 16px 0 0;
+        }
+        .header .navbar-collapse .nav-item .btn {
+          display: none;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header .nav-item .nav-link {
+          margin: 0 0 16px;
+        }
+        .header .nav-item .btn-success {
+          margin: 0 0 16px !important;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .header .navMobile {
+          width: 100%;
+          text-align: right;
+        }
+        
+        .header .subMenuMobile a {
+          margin-right: 10px !important;
+          margin-left: 0 !important;
+        }
+        .header .navbar-brand {
+          width: 100%;
+          text-align: center;
+          margin: 0 0 10px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .header .navbar-brand img {
+          width: 240px;
+        }
+      }
     </style>
   </head>
   <body>
-    <!-- header -->
-    <nav class="header navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-          <img
-            src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1696955674/cleaner/logo2_3_wdlaua.png"
-            alt=""
-          />
-        </a>
+   <!-- header -->
+   <nav class="header navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img
+          src="https://res.cloudinary.com/dgztdhc6a/image/upload/v1697919693/Committed%20Cleaners/Logo/CC_biz_logo_with_name_no_bg_rfsvfv.png"
+          alt=""
+        />
+      </a>
+      <div class="navMobile">
+        <div class="subMenuMobile">
+          <a class="btn btn-success mx-4" href="/booknow">Book Now</a>
+          <a class="btn btn-primary" href="/login">Login</a>
+        </div>
         <button
           class="navbar-toggler"
           type="button"
@@ -689,30 +909,31 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/services"
-                >Services</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/join-us">Join Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/contact-us">Contact Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="btn btn-success mx-4" href="/booknow">Book Now</a>
-            </li>
-            <li class="nav-item">
-              <a class="btn btn-primary" href="/login">Login</a>
-            </li>
-          </ul>
-        </div>
       </div>
-    </nav>
-    <!-- end header -->
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/services"
+              >Services</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/join-us">Join Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact-us">Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-success mx-4" href="/booknow">Book Now</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-primary" href="/login">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- end header -->
 
     <!-- content -->
     <div class="servicesPage">
@@ -739,7 +960,7 @@
 
                   <div class="ms-auto phone">
                     +34-123-456-789
-                    <button class="btn btnPhone btn-light">
+                    <a class="btn btnPhone btn-light" href="tel:+34-123-456-789">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -754,7 +975,7 @@
                           d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
                         />
                       </svg>
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>

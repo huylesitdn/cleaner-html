@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="Cache-control" content="public" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link
@@ -9,6 +10,10 @@
       rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
     />
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -21,6 +26,70 @@
       body {
         padding-top: 78px;
       }
+
+      /* loading */
+      .loadingPage {
+        position: fixed;
+        z-index: 9999;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: show;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .lds-ripple {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+      }
+      .lds-ripple div {
+        position: absolute;
+        border: 4px solid #0f64db;
+        opacity: 1;
+        border-radius: 50%;
+        animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+      }
+      .lds-ripple div:nth-child(2) {
+        animation-delay: -0.5s;
+      }
+      @keyframes lds-ripple {
+        0% {
+          top: 36px;
+          left: 36px;
+          width: 0;
+          height: 0;
+          opacity: 0;
+        }
+        4.9% {
+          top: 36px;
+          left: 36px;
+          width: 0;
+          height: 0;
+          opacity: 0;
+        }
+        5% {
+          top: 36px;
+          left: 36px;
+          width: 0;
+          height: 0;
+          opacity: 1;
+        }
+        100% {
+          top: 0px;
+          left: 0px;
+          width: 72px;
+          height: 72px;
+          opacity: 0;
+        }
+      }
+
+      /* end loading */
+
       /* header */
       .header {
         width: 100%;
@@ -32,6 +101,9 @@
         top: 0;
         z-index: 10;
         /* height: 78px; */
+      }
+      .header .subMenuMobile {
+        display: none;
       }
       .header .navbar-brand img {
         width: 280px;
@@ -193,7 +265,7 @@
       }
 
       .whyUsContent {
-        max-width: 800px;
+        /* max-width: 800px; */
         margin: 0 auto;
       }
 
@@ -207,40 +279,140 @@
         left: 0;
         right: 0;
         bottom: 0;
-        padding: 60px 30px;
-        background: #40404087;
+        padding: 14px;
+        height: 240px;
+        /* top: 0; */
+        background: #5454549e;
         transition-delay: 0s;
         transition-duration: 0.4s;
+        position: absolute;
+        transform: translateY(188px);
+        overflow: hidden;
       }
 
-      .whyUsContent .carousel-item h5 {
+      .whyUsContent .swiper-slide {
+        overflow: hidden;
+      }
+
+      .whyUsContent .carousel-caption h5 {
         margin: 0 0;
-        font-size: 24px;
+        font-size: 20px;
         color: #fff;
+        text-align: left;
       }
 
-      .whyUsContent .carousel-item p {
+      .whyUsContent .carousel-caption p {
+        font-size: 14px;
         opacity: 0;
-        transform: translateY(100px);
+        /* transform: translateY(100px); */
         transition-delay: 0s;
         transition-duration: 0.4s;
         height: 0;
         color: #fff;
+        text-align: left;
       }
 
+      .whyUsContent .swiper-slide:hover .carousel-caption {
+        /* height: 192px; */
+        height: 100%;
+        top: 0;
+        transform: translateY(0);
+      }
       .whyUsContent .carousel-item:hover .carousel-caption {
         /* height: 192px; */
+        height: 100%;
+        top: 0;
+        transform: translateY(0);
       }
 
+      .whyUsContent .swiper-slide:hover p {
+        opacity: 1;
+        /* transform: translateY(16px); */
+        margin-top: 10px;
+        height: auto;
+      }
       .whyUsContent .carousel-item:hover p {
         opacity: 1;
-        transform: translateY(16px);
+        /* transform: translateY(16px); */
+        margin-top: 10px;
         height: auto;
+      }
+
+      .whyUs .card {
+        border: none;
+        border-radius: 0;
+        box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+      }
+      .whyUs .carousel-inner {
+        padding: 0;
+      }
+      .whyUs .carousel-control-prev,
+      .whyUs .carousel-control-next {
+        background-color: #e1e1e1;
+        width: 6vh;
+        height: 6vh;
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .whyUs .carousel-control-prev span,
+      .whyUs .carousel-control-next span {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+      @media screen and (min-width: 577px) {
+        .whyUs .cards-wrapper {
+          display: flex;
+          gap: 20px;
+        }
+        .whyUs.card {
+          margin: 0 0.5em;
+          width: calc(100% / 2);
+        }
+        .whyUs .image-wrapper {
+          height: 20vw;
+          margin: 0;
+        }
+
+        .whyUs .image-wrapper img {
+          width: 100%;
+        }
+      }
+      @media screen and (max-width: 576px) {
+        .whyUs .card:not(:first-child) {
+          display: none;
+        }
+      }
+
+      .whyUs .image-wrapper img {
+        max-width: 100%;
+        max-height: 100%;
       }
 
       .swiper {
         width: 100%;
         height: 100%;
+        padding-bottom: 30px;
+      }
+
+      .swiper-wrapper {
+        overflow-x: scroll;
+      }
+
+      .swiper-wrapper::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(101, 101, 101, 0.3);
+        background-color: #f5f5f5;
+      }
+
+      .swiper-wrapper::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+        background-color: #f5f5f5;
+      }
+
+      .swiper-wrapper::-webkit-scrollbar-thumb {
+        background-color: #707070;
+        border: none;
       }
 
       .swiper-slide {
@@ -250,6 +422,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 400px;
+        margin-right: 16px;
       }
 
       .swiper-slide img {
@@ -257,6 +431,12 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        position: relative;
+        height: 240px;
+      }
+
+      .whyUs .carousel {
+        /* display: none; */
       }
       /* end why us content */
 
@@ -319,9 +499,28 @@
         align-items: center;
         margin-top: 16px;
       }
+      .reviews .swiper-slide {
+        background: none;
+        padding-bottom: 5px;
+        text-align: left;
+      }
       .reviews .reviewBy p {
         font-size: 14px;
         margin: 0;
+      }
+      .reviews .rating {
+        display: flex;
+      }
+      .reviews .reviewItem .rating img {
+        width: 24px;
+        height: 24px;
+      }
+      .reviews .reviewBy img {
+        width: 25px;
+        height: 25px;
+      }
+      .reviews .carousel {
+        /* display: none; */
       }
       /* end review content */
 
@@ -329,11 +528,24 @@
         .banner {
           padding: 100px 0;
         }
+        .whyUsContent .carousel-caption {
+          transform: translateY(160px);
+        }
+      }
+      @media (max-width: 991px) {
+        .header .subMenuMobile {
+          display: inline-flex;
+          align-items: center;
+          margin-left: auto;
+        }
+        .header .subMenuMobile a {
+          margin: 0 16px 0 0;
+        }
+        .header .navbar-collapse .nav-item .btn {
+          display: none;
+        }
       }
       @media (max-width: 768px) {
-        .header .navbar-collapse {
-          /* background: #fff; */
-        }
         .header .nav-item .nav-link {
           margin: 0 0 16px;
         }
@@ -353,10 +565,13 @@
           padding: 40px 0;
         }
         .whyUsContent {
-          width: 90%;
+          /* width: 90%; */
         }
         .whyUs .whyUsContent h1 {
           font-size: 32px;
+        }
+        .whyUsContent .swiper-slide {
+          width: calc(100% / 2 - 15px);
         }
         .reviews {
           padding: 40px 0;
@@ -381,6 +596,42 @@
         }
       }
 
+      @media (max-width: 600px) {
+        .header .navMobile {
+          width: 100%;
+          text-align: right;
+        }
+
+        .header .subMenuMobile a {
+          margin-right: 10px !important;
+          margin-left: 0 !important;
+        }
+        .header .navbar-brand {
+          width: 100%;
+          text-align: center;
+          margin: 0 0 10px;
+        }
+
+        .whyUs .mySwiper {
+          display: none;
+        }
+        .whyUs .carousel {
+          display: block;
+        }
+        .whyUs .carousel-item img {
+          height: 260px;
+        }
+        .reviews .swiper {
+          display: none;
+        }
+        .reviews .carousel {
+          display: block;
+        }
+        /* .reviews .carousel-control-next-icon {
+          background-color: #000;
+        } */
+      }
+
       @media (max-width: 500px) {
         .header .navbar-brand img {
           width: 240px;
@@ -397,6 +648,9 @@
         .reviews .reviewsContent h1 {
           font-size: 24px;
         }
+        .whyUsContent .swiper-slide {
+          width: 100%;
+        }
       }
     </style>
   </head>
@@ -410,17 +664,23 @@
             alt=""
           />
         </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarTogglerDemo02"
-          aria-controls="navbarTogglerDemo02"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="navMobile">
+          <div class="subMenuMobile">
+            <a class="btn btn-success mx-4" href="/booknow">Book Now</a>
+            <a class="btn btn-primary" href="/login">Login</a>
+          </div>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
@@ -445,6 +705,13 @@
       </div>
     </nav>
     <!-- end header -->
+
+    <div class="loadingPage" id="loadingPage">
+      <div class="lds-ripple">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
 
     <!-- banner -->
     <div class="banner">
@@ -471,7 +738,7 @@
               </div>
               <div class="col-xs-12 col-md-6">
                 <select class="form-select" aria-label="Type of Cleaning">
-                  <!-- <option selected>Type of Cleaning</option> -->
+                  <option disabled selected>Type of Cleaning</option>
                   <option value="1">Home Cleaning Package</option>
                   <option value="2">Home Cleaning By Hour</option>
                   <option value="3">Office Cleaning</option>
@@ -479,7 +746,7 @@
               </div>
               <div class="col-xs-12 col-md-6">
                 <select class="form-select" aria-label="Area">
-                  <!-- <option selected>Area</option> -->
+                  <option disabled selected>Area</option>
                   <option value="1">Toronto</option>
                   <option value="2">Mississauga</option>
                   <option value="3">Brampton</option>
@@ -507,24 +774,229 @@
         <div class="whyUsContent">
           <h1>Why Us?</h1>
 
+          <div
+            id="carouselExampleControls"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="cards-wrapper">
+                  <div class="card">
+                    <div class="image-wrapper">
+                      <img
+                        src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697034512/cleaner/image_52_ogvtus.png"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        Empowering Our Team for Excellence
+                      </h5>
+                      <p class="card-text">
+                        We invest in training our employees to ensure they
+                        consistently deliver outstanding work
+                      </p>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="image-wrapper">
+                      <img
+                        src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697034513/cleaner/AdobeStock_619580572_1_acuktl.png"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Your Vision, Our Mission</h5>
+                      <p class="card-text">
+                        We're dedicated to fulfilling your cleaning requirements
+                        and preferences.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="image-wrapper">
+                      <img
+                        src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697034514/cleaner/AdobeStock_196997285_1_u7q4l3.png"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        Clients First, Excellence Always
+                      </h5>
+                      <p class="card-text">
+                        Our unwavering dedication is to treat your house like
+                        our house while consistently delivering exceptional
+                        results.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="cards-wrapper">
+                  <div class="card">
+                    <div class="image-wrapper">
+                      <img
+                        src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697032416/cleaner/image_59_o9sjjh.png"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Flexibility at Your Fingertips</h5>
+                      <p class="card-text">
+                        We empower our clients to choose their own schedules,
+                        offering a tailored cleaning experience
+                      </p>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="image-wrapper">
+                      <img
+                        src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697032410/cleaner/image_58_n7uj4u.png"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">Cost-Effective Solutions</h5>
+                      <p class="card-text">
+                        We provide budget-friendly options, delivering quality
+                        cleaning services tailored to your financial preferences
+                      </p>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="image-wrapper">
+                      <img
+                        src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697034514/cleaner/AdobeStock_196997285_1_u7q4l3.png"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="card-body">
+                      <h5 class="card-title">
+                        Clients First, Excellence Always
+                      </h5>
+                      <p class="card-text">
+                        Our unwavering dedication is to treat your house like
+                        our house while consistently delivering exceptional
+                        results.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
           <!-- Swiper -->
           <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">Slide 1</div>
-              <div class="swiper-slide">Slide 2</div>
-              <div class="swiper-slide">Slide 3</div>
-              <div class="swiper-slide">Slide 4</div>
-              <div class="swiper-slide">Slide 5</div>
-              <div class="swiper-slide">Slide 6</div>
-              <div class="swiper-slide">Slide 7</div>
-              <div class="swiper-slide">Slide 8</div>
-              <div class="swiper-slide">Slide 9</div>
+              <div class="swiper-slide">
+                <img
+                  src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697034512/cleaner/image_52_ogvtus.png"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="carousel-caption">
+                  <h5>Empowering Our Team for Excellence</h5>
+                  <p>
+                    We invest in training our employees to ensure they
+                    consistently deliver outstanding work
+                  </p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697034513/cleaner/AdobeStock_619580572_1_acuktl.png"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="carousel-caption">
+                  <h5>Your Vision, Our Mission</h5>
+                  <p>
+                    We're dedicated to fulfilling your cleaning requirements and
+                    preferences.
+                  </p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697034514/cleaner/AdobeStock_196997285_1_u7q4l3.png"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="carousel-caption">
+                  <h5>Clients First, Excellence Always</h5>
+                  <p>
+                    Our unwavering dedication is to treat your house like our
+                    house while consistently delivering exceptional results.
+                  </p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697032416/cleaner/image_59_o9sjjh.png"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="carousel-caption">
+                  <h5>Flexibility at Your Fingertips</h5>
+                  <p>
+                    We empower our clients to choose their own schedules,
+                    offering a tailored cleaning experience
+                  </p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <img
+                  src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1697032410/cleaner/image_58_n7uj4u.png"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="carousel-caption">
+                  <h5>Cost-Effective Solutions</h5>
+                  <p>
+                    We provide budget-friendly options, delivering quality
+                    cleaning services tailored to your financial preferences
+                  </p>
+                </div>
+              </div>
             </div>
             <div class="swiper-pagination"></div>
           </div>
           <!-- end swiper -->
 
-          <div id="carouselExampleCaptions" class="carousel slide">
+          <!-- carouse mobile -->
+          <div
+            id="carouselExampleRide"
+            class="carousel slide"
+            data-bs-ride="true"
+          >
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <img
@@ -532,7 +1004,7 @@
                   class="d-block w-100"
                   alt="..."
                 />
-                <div class="carousel-caption d-none d-md-block">
+                <div class="carousel-caption">
                   <h5>Empowering Our Team for Excellence</h5>
                   <p>
                     We invest in training our employees to ensure they
@@ -546,7 +1018,7 @@
                   class="d-block w-100"
                   alt="..."
                 />
-                <div class="carousel-caption d-none d-md-block">
+                <div class="carousel-caption">
                   <h5>Your Vision, Our Mission</h5>
                   <p>
                     We're dedicated to fulfilling your cleaning requirements and
@@ -560,7 +1032,7 @@
                   class="d-block w-100"
                   alt="..."
                 />
-                <div class="carousel-caption d-none d-md-block">
+                <div class="carousel-caption">
                   <h5>Clients First, Excellence Always</h5>
                   <p>
                     Our unwavering dedication is to treat your house like our
@@ -574,7 +1046,7 @@
                   class="d-block w-100"
                   alt="..."
                 />
-                <div class="carousel-caption d-none d-md-block">
+                <div class="carousel-caption">
                   <h5>Flexibility at Your Fingertips</h5>
                   <p>
                     We empower our clients to choose their own schedules,
@@ -588,7 +1060,7 @@
                   class="d-block w-100"
                   alt="..."
                 />
-                <div class="carousel-caption d-none d-md-block">
+                <div class="carousel-caption">
                   <h5>Cost-Effective Solutions</h5>
                   <p>
                     We provide budget-friendly options, delivering quality
@@ -600,7 +1072,7 @@
             <button
               class="carousel-control-prev"
               type="button"
-              data-bs-target="#carouselExampleCaptions"
+              data-bs-target="#carouselExampleRide"
               data-bs-slide="prev"
             >
               <span
@@ -612,7 +1084,7 @@
             <button
               class="carousel-control-next"
               type="button"
-              data-bs-target="#carouselExampleCaptions"
+              data-bs-target="#carouselExampleRide"
               data-bs-slide="next"
             >
               <span
@@ -632,230 +1104,486 @@
       <div class="container-fluid">
         <div class="reviewsContent">
           <h1>Review</h1>
-          <div class="row g-4">
-            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
-              <div class="reviewItem">
-                <div class="user">
-                  <img
-                    src="https://i.pravatar.cc/150?u=a04258114e29026302d"
-                    alt=""
-                  />
-                  <div class="userDetail">
-                    <h5>Kelly Hopkins</h5>
-                    <p>10 hours ago</p>
+
+          <!-- Swiper -->
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="reviewItem">
+                  <div class="user">
+                    <img
+                      src="https://i.pravatar.cc/150?u=a04258114e29026302d"
+                      alt=""
+                    />
+                    <div class="userDetail">
+                      <h5>Kelly Hopkins</h5>
+                      <p>10 hours ago</p>
+                    </div>
+                  </div>
+                  <div class="rating">
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="feedback">
+                    It was an easy walk and great for kids. The tree art was fun
+                    to look at. The view was amazing and the adventure net was a
+                    fun little test of guts. The information signs were short
+                    and sweet. Anyone would be able to make the top. The slide
+                    looked fun but sadly due to personal injury was unable to go
+                    down. I would not miss this stop if you are driving by.
+                  </div>
+                  <div class="reviewBy">
+                    <img
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs4w2x17JFNa6MfO7sFDyqE0th8s3P0N48VrBesNvWIQ&s"
+                      alt=""
+                      width="25px"
+                      height="25px"
+                      style="margin-right: 10px"
+                    />
+                    <p>View on Google</p>
                   </div>
                 </div>
-                <div class="rating">
-                  <img
-                    src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
-                    alt=""
-                  />
-                  <img
-                    src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
-                    alt=""
-                  />
-                  <img
-                    src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
-                    alt=""
-                  />
-                  <img
-                    src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
-                    alt=""
-                  />
-                  <img
-                    src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
-                    alt=""
-                  />
+              </div>
+              <div class="swiper-slide">
+                <div class="reviewItem">
+                  <div class="user">
+                    <img
+                      src="https://i.pravatar.cc/150?u=a04258114e29026302d"
+                      alt=""
+                    />
+                    <div class="userDetail">
+                      <h5>Kelly Hopkins</h5>
+                      <p>10 hours ago</p>
+                    </div>
+                  </div>
+                  <div class="rating">
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="feedback">
+                    It was an easy walk and great for kids. The tree art was fun
+                    to look at. The view was amazing and the adventure net was a
+                    fun little test of guts. The information signs were short
+                    and sweet. Anyone would be able to make the top. The slide
+                    looked fun but sadly due to personal injury was unable to go
+                    down. I would not miss this stop if you are driving by.
+                  </div>
+                  <div class="reviewBy">
+                    <img
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs4w2x17JFNa6MfO7sFDyqE0th8s3P0N48VrBesNvWIQ&s"
+                      alt=""
+                      width="25px"
+                      height="25px"
+                      style="margin-right: 10px"
+                    />
+                    <p>View on Google</p>
+                  </div>
                 </div>
-                <div class="feedback">
-                  It was an easy walk and great for kids. The tree art was fun
-                  to look at. The view was amazing and the adventure net was a
-                  fun little test of guts. The information signs were short and
-                  sweet. Anyone would be able to make the top. The slide looked
-                  fun but sadly due to personal injury was unable to go down. I
-                  would not miss this stop if you are driving by.
+              </div>
+              <div class="swiper-slide">
+                <div class="reviewItem">
+                  <div class="user">
+                    <img
+                      src="https://i.pravatar.cc/150?u=a04258114e29026302d"
+                      alt=""
+                    />
+                    <div class="userDetail">
+                      <h5>Kelly Hopkins</h5>
+                      <p>10 hours ago</p>
+                    </div>
+                  </div>
+                  <div class="rating">
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="feedback">
+                    It was an easy walk and great for kids. The tree art was fun
+                    to look at. The view was amazing and the adventure net was a
+                    fun little test of guts. The information signs were short
+                    and sweet. Anyone would be able to make the top. The slide
+                    looked fun but sadly due to personal injury was unable to go
+                    down. I would not miss this stop if you are driving by.
+                  </div>
+                  <div class="reviewBy">
+                    <img
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs4w2x17JFNa6MfO7sFDyqE0th8s3P0N48VrBesNvWIQ&s"
+                      alt=""
+                      width="25px"
+                      height="25px"
+                      style="margin-right: 10px"
+                    />
+                    <p>View on Google</p>
+                  </div>
                 </div>
-                <div class="reviewBy">
-                  <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs4w2x17JFNa6MfO7sFDyqE0th8s3P0N48VrBesNvWIQ&s"
-                    alt=""
-                    width="25px"
-                    height="25px"
-                    style="margin-right: 10px"
-                  />
-                  <p>View on Google</p>
+              </div>
+              <div class="swiper-slide">
+                <div class="reviewItem">
+                  <div class="user">
+                    <img
+                      src="https://i.pravatar.cc/150?u=a04258114e29026302d"
+                      alt=""
+                    />
+                    <div class="userDetail">
+                      <h5>Kelly Hopkins</h5>
+                      <p>10 hours ago</p>
+                    </div>
+                  </div>
+                  <div class="rating">
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="feedback">
+                    It was an easy walk and great for kids. The tree art was fun
+                    to look at. The view was amazing and the adventure net was a
+                    fun little test of guts. The information signs were short
+                    and sweet. Anyone would be able to make the top. The slide
+                    looked fun but sadly due to personal injury was unable to go
+                    down. I would not miss this stop if you are driving by.
+                  </div>
+                  <div class="reviewBy">
+                    <img
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs4w2x17JFNa6MfO7sFDyqE0th8s3P0N48VrBesNvWIQ&s"
+                      alt=""
+                      width="25px"
+                      height="25px"
+                      style="margin-right: 10px"
+                    />
+                    <p>View on Google</p>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="reviewItem">
+                  <div class="user">
+                    <img
+                      src="https://i.pravatar.cc/150?u=a04258114e29026302d"
+                      alt=""
+                    />
+                    <div class="userDetail">
+                      <h5>Kelly Hopkins</h5>
+                      <p>10 hours ago</p>
+                    </div>
+                  </div>
+                  <div class="rating">
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="feedback">
+                    It was an easy walk and great for kids. The tree art was fun
+                    to look at. The view was amazing and the adventure net was a
+                    fun little test of guts. The information signs were short
+                    and sweet. Anyone would be able to make the top. The slide
+                    looked fun but sadly due to personal injury was unable to go
+                    down. I would not miss this stop if you are driving by.
+                  </div>
+                  <div class="reviewBy">
+                    <img
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs4w2x17JFNa6MfO7sFDyqE0th8s3P0N48VrBesNvWIQ&s"
+                      alt=""
+                      width="25px"
+                      height="25px"
+                      style="margin-right: 10px"
+                    />
+                    <p>View on Google</p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
-              <div class="reviewItem">
-                <div class="user">
-                  <img
-                    src="https://i.pravatar.cc/150?u=a04258114e29026302d"
-                    alt=""
-                  />
-                  <div class="userDetail">
-                    <h5>Kelly Hopkins</h5>
-                    <p>10 hours ago</p>
+            <div class="swiper-pagination"></div>
+          </div>
+          <!-- end swiper -->
+
+          <!-- carouse mobile -->
+          <div
+            id="carouselExampleRide1"
+            class="carousel carousel-dark slide"
+            data-bs-ride="true"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="reviewItem">
+                  <div class="user">
+                    <img
+                      src="https://i.pravatar.cc/150?u=a04258114e29026302d"
+                      alt=""
+                    />
+                    <div class="userDetail">
+                      <h5>Kelly Hopkins</h5>
+                      <p>10 hours ago</p>
+                    </div>
+                  </div>
+                  <div class="rating">
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="feedback">
+                    It was an easy walk and great for kids. The tree art was fun
+                    to look at. The view was amazing and the adventure net was a
+                    fun little test of guts. The information signs were short
+                    and sweet. Anyone would be able to make the top. The slide
+                    looked fun but sadly due to personal injury was unable to go
+                    down. I would not miss this stop if you are driving by.
+                  </div>
+                  <div class="reviewBy">
+                    <img
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs4w2x17JFNa6MfO7sFDyqE0th8s3P0N48VrBesNvWIQ&s"
+                      alt=""
+                      width="25px"
+                      height="25px"
+                      style="margin-right: 10px"
+                    />
+                    <p>View on Google</p>
                   </div>
                 </div>
-                <div class="rating">
-                  <img
-                    src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
-                    alt=""
-                  />
-                  <img
-                    src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
-                    alt=""
-                  />
-                  <img
-                    src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
-                    alt=""
-                  />
-                  <img
-                    src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
-                    alt=""
-                  />
-                  <img
-                    src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
-                    alt=""
-                  />
+              </div>
+              <div class="carousel-item">
+                <div class="reviewItem">
+                  <div class="user">
+                    <img
+                      src="https://i.pravatar.cc/150?u=a04258114e29026302d"
+                      alt=""
+                    />
+                    <div class="userDetail">
+                      <h5>Kelly Hopkins</h5>
+                      <p>10 hours ago</p>
+                    </div>
+                  </div>
+                  <div class="rating">
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="feedback">
+                    It was an easy walk and great for kids. The tree art was fun
+                    to look at. The view was amazing and the adventure net was a
+                    fun little test of guts. The information signs were short
+                    and sweet. Anyone would be able to make the top. The slide
+                    looked fun but sadly due to personal injury was unable to go
+                    down. I would not miss this stop if you are driving by.
+                  </div>
+                  <div class="reviewBy">
+                    <img
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs4w2x17JFNa6MfO7sFDyqE0th8s3P0N48VrBesNvWIQ&s"
+                      alt=""
+                      width="25px"
+                      height="25px"
+                      style="margin-right: 10px"
+                    />
+                    <p>View on Google</p>
+                  </div>
                 </div>
-                <div class="feedback">
-                  It was an easy walk and great for kids. The tree art was fun
-                  to look at. The view was amazing and the adventure net was a
-                  fun little test of guts. The information signs were short and
-                  sweet. Anyone would be able to make the top. The slide looked
-                  fun but sadly due to personal injury was unable to go down. I
-                  would not miss this stop if you are driving by.
-                </div>
-                <div class="reviewBy">
-                  <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs4w2x17JFNa6MfO7sFDyqE0th8s3P0N48VrBesNvWIQ&s"
-                    alt=""
-                    width="25px"
-                    height="25px"
-                    style="margin-right: 10px"
-                  />
-                  <p>View on Google</p>
+              </div>
+              <div class="carousel-item">
+                <div class="reviewItem">
+                  <div class="user">
+                    <img
+                      src="https://i.pravatar.cc/150?u=a04258114e29026302d"
+                      alt=""
+                    />
+                    <div class="userDetail">
+                      <h5>Kelly Hopkins</h5>
+                      <p>10 hours ago</p>
+                    </div>
+                  </div>
+                  <div class="rating">
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                    <img
+                      src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="feedback">
+                    It was an easy walk and great for kids. The tree art was fun
+                    to look at. The view was amazing and the adventure net was a
+                    fun little test of guts. The information signs were short
+                    and sweet. Anyone would be able to make the top. The slide
+                    looked fun but sadly due to personal injury was unable to go
+                    down. I would not miss this stop if you are driving by.
+                  </div>
+                  <div class="reviewBy">
+                    <img
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs4w2x17JFNa6MfO7sFDyqE0th8s3P0N48VrBesNvWIQ&s"
+                      alt=""
+                      width="25px"
+                      height="25px"
+                      style="margin-right: 10px"
+                    />
+                    <p>View on Google</p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
-              <div class="reviewItem">
-                <div class="user">
-                  <img
-                    src="https://i.pravatar.cc/150?u=a04258114e29026302d"
-                    alt=""
-                  />
-                  <div class="userDetail">
-                    <h5>Kelly Hopkins</h5>
-                    <p>10 hours ago</p>
-                  </div>
-                </div>
-                <div class="rating">
-                  <img
-                    src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
-                    alt=""
-                  />
-                  <img
-                    src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
-                    alt=""
-                  />
-                  <img
-                    src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
-                    alt=""
-                  />
-                  <img
-                    src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
-                    alt=""
-                  />
-                  <img
-                    src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
-                    alt=""
-                  />
-                </div>
-                <div class="feedback">
-                  It was an easy walk and great for kids. The tree art was fun
-                  to look at. The view was amazing and the adventure net was a
-                  fun little test of guts. The information signs were short and
-                  sweet. Anyone would be able to make the top. The slide looked
-                  fun but sadly due to personal injury was unable to go down. I
-                  would not miss this stop if you are driving by.
-                </div>
-                <div class="reviewBy">
-                  <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs4w2x17JFNa6MfO7sFDyqE0th8s3P0N48VrBesNvWIQ&s"
-                    alt=""
-                    width="25px"
-                    height="25px"
-                    style="margin-right: 10px"
-                  />
-                  <p>View on Google</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12 col-md-6 col-lg-4 col-xl-3">
-              <div class="reviewItem">
-                <div class="user">
-                  <img
-                    src="https://i.pravatar.cc/150?u=a04258114e29026302d"
-                    alt=""
-                  />
-                  <div class="userDetail">
-                    <h5>Kelly Hopkins</h5>
-                    <p>10 hours ago</p>
-                  </div>
-                </div>
-                <div class="rating">
-                  <img
-                    src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
-                    alt=""
-                  />
-                  <img
-                    src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
-                    alt=""
-                  />
-                  <img
-                    src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
-                    alt=""
-                  />
-                  <img
-                    src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
-                    alt=""
-                  />
-                  <img
-                    src="https://maps.gstatic.com/consumer/images/icons/2x/ic_star_rate_14.png"
-                    alt=""
-                  />
-                </div>
-                <div class="feedback">
-                  It was an easy walk and great for kids. The tree art was fun
-                  to look at. The view was amazing and the adventure net was a
-                  fun little test of guts. The information signs were short and
-                  sweet. Anyone would be able to make the top. The slide looked
-                  fun but sadly due to personal injury was unable to go down. I
-                  would not miss this stop if you are driving by.
-                </div>
-                <div class="reviewBy">
-                  <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs4w2x17JFNa6MfO7sFDyqE0th8s3P0N48VrBesNvWIQ&s"
-                    alt=""
-                    width="25px"
-                    height="25px"
-                    style="margin-right: 10px"
-                  />
-                  <p>View on Google</p>
-                </div>
-              </div>
-            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleRide1"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleRide1"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
           </div>
         </div>
       </div>
     </div>
 
     <!-- footer -->
-    <div class="footer">
+    <!-- <div class="footer">
       <div class="areas">
         <div class="areas-content">
           <div class="contentLeft">
@@ -921,7 +1649,67 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- end footer -->
+
+    <!-- Swiper JS -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"
+    ></script>
+    <!-- <script
+      defer
+      src="https://s3.amazonaws.com/knaq.staging/swiper-multi-item.js"
+    ></script> -->
+
+    <!-- <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 4,
+        spaceBetween: 20,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          300: {
+            slidesPerView: 1,
+            spaceBetween: 16,
+          },
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 16,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 16,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          1440: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+          },
+        },
+      });
+    </script> -->
+
+    <!-- script loading -->
+    <script>
+      const loadingEl = document.getElementById("loadingPage");
+      setTimeout(() => {
+        loadingEl.style.display = "none";
+      }, 3000);
+    </script>
+    <!-- end script loading -->
   </body>
 </html>

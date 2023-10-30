@@ -18,13 +18,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
     <style>
-      body {
-        padding-top: 78px;
-      }
-      /* header */
-      .header {
+       .header {
         width: 100%;
-        background: #d9eaf1 !important;
+        background: #09549c !important;
         /* background: #fff !important; */
         position: fixed;
         left: 0;
@@ -33,12 +29,16 @@
         z-index: 10;
         /* height: 78px; */
       }
+      .header .subMenuMobile {
+        display: none;
+      }
       .header .navbar-brand img {
         width: 280px;
       }
       .header .nav-item .nav-link {
         margin-left: 24px;
         font-weight: 600;
+        color: #fff;
       }
       .header .nav-item .nav-link:hover {
         color: #0d6efd;
@@ -46,17 +46,48 @@
       .header .nav-item .nav-link.btn:hover {
         color: #fff;
       }
+      .header .nav-item .btn {
+        border-radius: 26px;
+      }
       /* end header */
 
-      @media (max-width: 768px) {
-        .header .navbar-collapse {
-          /* background: #fff; */
+      @media (max-width: 991px) {
+        .header .subMenuMobile {
+          display: inline-flex;
+          align-items: center;
+          margin-left: auto;
         }
+        .header .subMenuMobile a {
+          margin: 0 16px 0 0;
+        }
+        .header .navbar-collapse .nav-item .btn {
+          display: none;
+        }
+      }
+
+      @media (max-width: 768px) {
         .header .nav-item .nav-link {
           margin: 0 0 16px;
         }
         .header .nav-item .btn-success {
           margin: 0 0 16px !important;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .header .navMobile {
+          width: 100%;
+          text-align: right;
+        }
+        
+        .header .subMenuMobile a {
+          margin-right: 10px !important;
+          margin-left: 0 !important;
+        }
+        .header .navbar-brand {
+          width: 100%;
+          text-align: center;
+          margin: 0 0 10px;
         }
       }
 
@@ -73,21 +104,27 @@
       <div class="container-fluid">
         <a class="navbar-brand" href="/">
           <img
-            src="https://res.cloudinary.com/daqg0u9gs/image/upload/v1696955674/cleaner/logo2_3_wdlaua.png"
+            src="https://res.cloudinary.com/dgztdhc6a/image/upload/v1697919693/Committed%20Cleaners/Logo/CC_biz_logo_with_name_no_bg_rfsvfv.png"
             alt=""
           />
         </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarTogglerDemo02"
-          aria-controls="navbarTogglerDemo02"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="navMobile">
+          <div class="subMenuMobile">
+            <a class="btn btn-success mx-4" href="/booknow">Book Now</a>
+            <a class="btn btn-primary" href="/login">Login</a>
+          </div>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarTogglerDemo02"
+            aria-controls="navbarTogglerDemo02"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item">
